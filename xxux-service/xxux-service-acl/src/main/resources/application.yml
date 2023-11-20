@@ -1,0 +1,6 @@
+
+spring:
+  application:
+    name: xxux-service-acl
+  profiles:
+    active: dev
