@@ -3,7 +3,9 @@ package com.lin.xxux.service.acl.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lin.xxux.common.service.enums.ResultEnum;
 import com.lin.xxux.common.service.result.Result;
+import com.lin.xxux.common.utils.MD5;
 import com.lin.xxux.model.acl.Admin;
+import com.lin.xxux.service.acl.service.AdminRoleService;
 import com.lin.xxux.service.acl.service.AdminService;
 import com.lin.xxux.service.acl.service.RoleService;
 import com.lin.xxux.vo.acl.AdminQueryVo;
@@ -12,6 +14,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>TODO</p>
@@ -30,7 +35,7 @@ public class AdminController {
     private AdminService adminService;
 
     @Autowired
-    private RoleService roleService;
+    private AdminRoleService adminRoleService;
 
     @ApiOperation(value = "获取管理用户分页列表")
     @GetMapping("{page}/{limit}")
@@ -45,6 +50,52 @@ public class AdminController {
         IPage<Admin> adminIPage = adminService.selectAdminPage(page, limit, adminQueryVo);
         return Result.build(adminIPage, ResultEnum.SUCCESS);
     }
+
+    @ApiOperation(value ="根据id查询用户")
+    @GetMapping("get/{id}")
+    public Result<Admin> getAdminById(@PathVariable Long id) {
+        return Result.ok(adminService.getById(id));
+    }
+
+    @ApiOperation(value ="新增用户")
+    @PostMapping("save")
+    public Result<Admin> saveAdmin(@RequestBody Admin admin) {
+        admin.setPassword(MD5.encrypt(admin.getPassword()));
+        adminService.save(admin);
+        return Result.ok();
+    }
+
+    @ApiOperation(value ="修改管理用户")
+    @PutMapping("update")
+    public Result<Admin> updateAdmin(@RequestBody Admin admin) {
+        adminService.updateById(admin);
+        return Result.ok();
+    }
+
+    @ApiOperation(value ="删除管理用户")
+    @DeleteMapping("remove/{id}")
+    public Result<Admin> removeAdmin(@PathVariable Long id) {
+        adminService.removeById(id);
+        return Result.ok();
+    }
+
+    @ApiOperation(value ="根据id列表删除管理用户")
+    @DeleteMapping("batchRemove")
+    public Result<Admin> batchRemoveAdmin(@RequestBody List<Long> ids) {
+        adminService.removeByIds(ids);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "根据用户获取角色数据")
+    @GetMapping("toAssign/{adminId}")
+    public Result toAssign(@PathVariable Long adminId) {
+        Map<String, Object> rolesByUserId = adminRoleService.findRoleByUserId(adminId);
+        return Result.ok(rolesByUserId);
+    }
+
+
+
+
 
 
 }

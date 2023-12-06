@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.lin.xxux.model.acl.Role;
 import com.lin.xxux.vo.acl.RoleQueryVo;
 
+import java.util.Map;
+
 /**
 * @author linsz
 * @description 针对表【role(角色)】的数据库操作Service
@@ -19,4 +21,6 @@ public interface RoleService extends IService<Role> {
      * @param limit
      */
     Page<Role> selectPage(RoleQueryVo roleQueryVo, Long page, Long limit);
+
+
 }

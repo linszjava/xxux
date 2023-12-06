@@ -4,11 +4,16 @@ import cn.hutool.core.util.ObjUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.lin.xxux.model.acl.AdminRole;
 import com.lin.xxux.model.acl.Role;
 import com.lin.xxux.service.acl.mapper.RoleMapper;
 import com.lin.xxux.service.acl.service.RoleService;
 import com.lin.xxux.vo.acl.RoleQueryVo;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
 * @author linsz
@@ -32,9 +37,10 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role>
         LambdaQueryWrapper<Role> wrapper = new LambdaQueryWrapper<>();
         wrapper.like(ObjUtil.isNotEmpty(roleQueryVo.getRoleName()),Role::getRoleName,roleQueryVo.getRoleName())
                 .orderByAsc(Role::getId);
-        Page<Role> queryResultPage = this.baseMapper.selectPage(rolePage, wrapper);
-        return queryResultPage;
+        return this.baseMapper.selectPage(rolePage, wrapper);
     }
+
+
 }
 
 
