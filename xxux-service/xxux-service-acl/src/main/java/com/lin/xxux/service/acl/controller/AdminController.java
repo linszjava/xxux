@@ -39,7 +39,7 @@ public class AdminController {
 
     @ApiOperation(value = "获取管理用户分页列表")
     @GetMapping("{page}/{limit}")
-    public Result getAdminPage(
+    public Result<IPage<Admin>> getAdminPage(
             @ApiParam(name = "page", value = "当前页码", required = true)
             @PathVariable Long page,
             @ApiParam(name = "limit", value = "每页记录数", required = true)
