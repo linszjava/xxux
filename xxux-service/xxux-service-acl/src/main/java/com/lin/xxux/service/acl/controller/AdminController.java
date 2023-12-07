@@ -26,7 +26,7 @@ import java.util.Map;
  * @date 2023/12/6 17:17
  */
 @RestController
-@RequestMapping("/admin/acl/use")
+@RequestMapping("/admin/acl/user")
 @Api(tags = "用户管理模块")
 @CrossOrigin
 public class AdminController {
@@ -91,6 +91,13 @@ public class AdminController {
     public Result toAssign(@PathVariable Long adminId) {
         Map<String, Object> rolesByUserId = adminRoleService.findRoleByUserId(adminId);
         return Result.ok(rolesByUserId);
+    }
+
+    @ApiOperation(value = "根据用户Id分配角色")
+    @PostMapping("doAssign")
+    public Result doAssign(@RequestParam Long adminId,@RequestParam Long[] roleIds) {
+        adminRoleService.saveAdminRole(adminId,roleIds);
+        return Result.ok();
     }
 
 

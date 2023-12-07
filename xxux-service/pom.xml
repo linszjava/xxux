@@ -14,7 +14,10 @@
     <name>微服务模块</name>
 
     <modules>
+        <!-- 微服务之 访问控制微服务        -->
         <module>xxux-service-acl</module>
+        <!-- 微服务之 系统微服务        -->
+        <module>xxux-service-sys</module>
     </modules>
 
     <dependencies>

@@ -62,6 +62,26 @@ public class AdminRoleServiceImpl extends ServiceImpl<AdminRoleMapper, AdminRole
         return roleMap;
     }
 
+    /**
+     * 给用户分配角色
+     * @param adminId
+     * @param roleIds
+     */
+    @Override
+    public void saveAdminRole(Long adminId, Long[] roleIds) {
+        // 1. 先删除该用户在AdminRole表中的所有角色id
+        this.remove(new LambdaQueryWrapper<AdminRole>().eq(AdminRole::getAdminId,adminId));
+        //2. 再添加该用户在AdminRole表中的所有角色id
+        List<AdminRole> adminRoleList = new ArrayList<>();
+        for (Long roleId : roleIds) {
+            AdminRole adminRole = new AdminRole();
+            adminRole.setAdminId(adminId);
+            adminRole.setRoleId(roleId);
+            adminRoleList.add(adminRole);
+        }
+        this.saveBatch(adminRoleList);
+    }
+
 }
 
 
