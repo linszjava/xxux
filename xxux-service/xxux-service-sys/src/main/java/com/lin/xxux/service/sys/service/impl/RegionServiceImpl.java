@@ -2,8 +2,9 @@ package com.lin.xxux.service.sys.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lin.xxux.model.sys.Region;
-import com.lin.xxux.model.service.RegionService;
-import com.lin.xxux.model.mapper.RegionMapper;
+
+import com.lin.xxux.service.sys.mapper.RegionMapper;
+import com.lin.xxux.service.sys.service.RegionService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region>
-    implements RegionService{
+    implements RegionService {
 
 }
 
