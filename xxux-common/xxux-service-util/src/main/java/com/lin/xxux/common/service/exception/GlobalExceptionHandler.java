@@ -1,6 +1,7 @@
 package com.lin.xxux.common.service.exception;
 
 import com.lin.xxux.common.service.result.Result;
+import com.lin.xxux.common.utils.exception.CusException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

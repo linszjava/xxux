@@ -5,16 +5,14 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.lin.xxux.common.service.enums.ResultEnum;
-import com.lin.xxux.common.service.exception.CusException;
+import com.lin.xxux.common.utils.enums.ResultEnum;
+import com.lin.xxux.common.utils.exception.CusException;
 import com.lin.xxux.model.sys.RegionWare;
 
 import com.lin.xxux.service.sys.mapper.RegionWareMapper;
 import com.lin.xxux.service.sys.service.RegionWareService;
 import com.lin.xxux.vo.sys.RegionWareQueryVo;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
 * @author linsz

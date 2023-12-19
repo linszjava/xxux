@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.DateFormat;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -14,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Accessors(chain = true)
 @Document(indexName = "skues" ,shards = 3,replicas = 1)
 public class SkuEs {
 

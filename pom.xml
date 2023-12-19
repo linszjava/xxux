@@ -17,6 +17,7 @@
         <module>xxux-model</module>
         <!--  具体微服务模块  -->
         <module>xxux-service</module>
+        <module>xxux-service-client</module>
 
 
     </modules>
@@ -44,6 +45,7 @@
         <jodatime.version>2.10.1</jodatime.version>
         <xxl-job.version>2.3.0</xxl-job.version>
         <hutool-all.version>5.8.18</hutool-all.version>
+        <ok-http.version>4.11.0</ok-http.version>
 
     </properties>
 
@@ -124,6 +126,13 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-all.version}</version>
             </dependency>
+
+            <!--服务注册-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

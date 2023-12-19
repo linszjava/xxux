@@ -1,13 +1,12 @@
 package com.lin.xxux.service.acl.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.lin.xxux.common.service.enums.ResultEnum;
+import com.lin.xxux.common.utils.enums.ResultEnum;
 import com.lin.xxux.common.service.result.Result;
-import com.lin.xxux.common.utils.MD5;
+import com.lin.xxux.common.utils.md5.MD5;
 import com.lin.xxux.model.acl.Admin;
 import com.lin.xxux.service.acl.service.AdminRoleService;
 import com.lin.xxux.service.acl.service.AdminService;
-import com.lin.xxux.service.acl.service.RoleService;
 import com.lin.xxux.vo.acl.AdminQueryVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

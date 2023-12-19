@@ -11,7 +11,7 @@
 
     <artifactId>xxux-common</artifactId>
     <packaging>pom</packaging>
-    <name>公共模块</name>
+<!--    <name>公共模块</name>-->
     <description>xxux下的公共模块</description>
 
     <modules>
@@ -19,6 +19,7 @@
         <module>xxux-common-util</module>
         <!-- 公共模块-服务子模块       -->
         <module>xxux-service-util</module>
+        <module>xxux-rabbitmq-util</module>
     </modules>
 
     <dependencies>

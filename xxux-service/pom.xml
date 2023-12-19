@@ -11,13 +11,19 @@
 
     <artifactId>xxux-service</artifactId>
     <packaging>pom</packaging>
-    <name>微服务模块</name>
+<!--    <name>微服务模块</name>-->
 
     <modules>
         <!-- 微服务之 访问控制微服务        -->
         <module>xxux-service-acl</module>
         <!-- 微服务之 系统微服务        -->
         <module>xxux-service-sys</module>
+        <!--  微服务之 产品微服务       -->
+        <module>xxux-service-product</module>
+        <!--  微服务之 搜索微服务       -->
+        <module>xxux-service-search</module>
+        <module>xxux-service-activity</module>
+
     </modules>
 
     <dependencies>
@@ -53,10 +59,10 @@
         </dependency>
 
         <!-- 服务注册 -->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
 
         <!-- 服务调用feign -->
         <dependency>

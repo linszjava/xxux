@@ -1,7 +1,7 @@
 package com.lin.xxux.common.service.result;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.lin.xxux.common.service.enums.ResultEnum;
+import com.lin.xxux.common.utils.enums.ResultEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -63,7 +63,7 @@ public class Result<T> {
      * @param <T>
      */
     public static<T> Result<T> fail(T data) {
-         return build(data, ResultEnum.SUCCESS);
+         return build(data, ResultEnum.FAIL);
     }
 
     /**
