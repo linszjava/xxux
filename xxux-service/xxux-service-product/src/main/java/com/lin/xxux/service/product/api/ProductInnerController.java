@@ -1,4 +1,4 @@
-package com.lin.xxux.service.product.controller;
+package com.lin.xxux.service.product.api;
 
 import com.lin.xxux.model.product.Category;
 import com.lin.xxux.model.product.SkuInfo;
@@ -20,7 +20,6 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("api/product")
-//@SuppressWarnings({"unchecked", "rawtypes"})
 public class ProductInnerController {
 
     @Autowired
@@ -51,5 +50,11 @@ public class ProductInnerController {
     @GetMapping("inner/findSkuInfoByKeyword/{keyword}")
     public List<SkuInfo> findSkuInfoByKeyword(@PathVariable("keyword") String keyword) {
         return skuInfoService.findSkuInfoByKeyword(keyword);
+    }
+
+    //根据分类id获取分类列表
+    @PostMapping("inner/findCategoryList")
+    public List<Category> findCategoryList(@RequestBody List<Long> categoryIdList) {
+        return categoryService.listByIds(categoryIdList);
     }
 }

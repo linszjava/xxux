@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: xxux-service-user
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848

@@ -23,7 +23,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/product/category")
-@CrossOrigin
+//@CrossOrigin
 @Api(tags = "商品分类管理模块")
 public class CategoryController {
 

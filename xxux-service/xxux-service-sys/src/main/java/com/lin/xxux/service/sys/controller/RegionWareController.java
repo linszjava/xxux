@@ -23,7 +23,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin/sys/regionWare")
 @Api(tags = "地区仓库管理")
-@CrossOrigin
+//@CrossOrigin
 public class RegionWareController {
 
     @Autowired

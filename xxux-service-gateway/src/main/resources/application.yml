@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: xxux-server-gateway
+  profiles:
+    active: dev

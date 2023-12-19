@@ -18,6 +18,7 @@
         <!--  具体微服务模块  -->
         <module>xxux-service</module>
         <module>xxux-service-client</module>
+        <module>xxux-service-gateway</module>
 
 
     </modules>

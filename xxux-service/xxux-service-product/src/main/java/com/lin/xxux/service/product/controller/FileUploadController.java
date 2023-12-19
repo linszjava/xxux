@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Api(value = "文件上传管理", tags = "文件上传管理")
 @RestController
 @RequestMapping(value="/admin/product")
-@CrossOrigin
+//@CrossOrigin
 public class FileUploadController {
 
     @Autowired

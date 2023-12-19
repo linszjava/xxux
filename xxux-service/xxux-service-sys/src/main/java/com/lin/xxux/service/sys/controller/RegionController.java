@@ -20,7 +20,7 @@ import java.util.List;
 @RestController
 @Api(tags = "区域管理")
 @RequestMapping("/admin/sys/region")
-@CrossOrigin
+//@CrossOrigin
 public class RegionController {
 
     @Autowired

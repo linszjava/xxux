@@ -4,15 +4,23 @@ import io.jsonwebtoken.*;
 import org.springframework.util.StringUtils;
 import java.util.Date;
 
+/**
+ * <p>TODO</p>
+ * @version v1.0
+ * @date 2023/12/31 17:51
+ * @see  com.lin.xxux.common.utils.jwt.JwtHelper
+ * @since 2023/12/31 17:51
+ * @description  publicKey + InfoJson + saltIP(secretKey) = token
+ */
 public class JwtHelper {
 
-    private static long tokenExpiration = 365*24*60*60*1000;
-    private static String tokenSignKey = "ssyx";
+    private static final long tokenExpiration = 365L *24*60*60*1000;
+    private static final String tokenSignKey = "xxux";
 
     //根据userId+userName生成token字符串
     public static String createToken(Long userId, String userName) {
-        String token = Jwts.builder()
-                .setSubject("ssyx-USER")
+        return Jwts.builder()
+                .setSubject("xxux-USER")
 
                 .setExpiration(new Date(System.currentTimeMillis() + tokenExpiration))
 
@@ -23,7 +31,6 @@ public class JwtHelper {
 
                 .compressWith(CompressionCodecs.GZIP)
                 .compact();
-        return token;
     }
 
     public static Long getUserId(String token) {
@@ -49,7 +56,7 @@ public class JwtHelper {
     }
 
     public static void main(String[] args) {
-        String token = JwtHelper.createToken(1L, "admin");
+        String token = JwtHelper.createToken(1888L, "admin");
         System.out.println(token);
 
         System.out.println(JwtHelper.getUserId(token));

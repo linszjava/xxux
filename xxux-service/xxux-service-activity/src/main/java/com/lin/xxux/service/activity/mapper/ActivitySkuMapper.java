@@ -1,7 +1,11 @@
 package com.lin.xxux.service.activity.mapper;
 
+import com.lin.xxux.model.activity.ActivityRule;
 import com.lin.xxux.model.activity.ActivitySku;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
 * @author linsz
@@ -10,6 +14,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity com.lin.xxux.model.activity.ActivitySku
 */
 public interface ActivitySkuMapper extends BaseMapper<ActivitySku> {
+
 
 }
 

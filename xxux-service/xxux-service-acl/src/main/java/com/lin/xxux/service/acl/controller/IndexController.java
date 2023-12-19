@@ -20,7 +20,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin/acl/index")
 @Api(tags = "用户登录模块")
-@CrossOrigin
+//@CrossOrigin
 public class IndexController {
 
 

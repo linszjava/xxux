@@ -17,7 +17,7 @@ import javax.sql.DataSource;
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"com.lin.xxux"})
 public class ServiceSearchApplication {
 
     public static void main(String[] args) {

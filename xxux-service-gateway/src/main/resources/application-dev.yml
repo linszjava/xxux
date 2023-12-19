@@ -1,0 +1,64 @@
+server:
+  port: 8200
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: xxux-service-acl
+          uri: lb://xxux-service-acl
+          predicates:
+            - Path=/*/acl/**
+
+        - id: xxux-service-sys
+          uri: lb://xxux-service-sys
+          predicates:
+            - Path=/*/sys/**
+
+        - id: xxux-service-product
+          uri: lb://xxux-service-product
+          predicates:
+            - Path=/*/product/**
+
+        - id: xxux-service-activity
+          uri: lb://xxux-service-activity
+          predicates:
+            - Path=/*/activity/**
+
+        - id: xxux-service-order
+          uri: lb://xxux-service-order
+          predicates:
+            - Path=/*/order/**
+
+        - id: xxux-service-payment
+          uri: lb://xxux-service-payment
+          predicates:
+            - Path=/*/payment/**
+
+        - id: xxux-service-user
+          uri: lb://xxux-service-user
+          predicates:
+            - Path=/*/user/**
+
+        - id: xxux-service-search
+          uri: lb://xxux-service-search
+          predicates:
+            - Path=/*/search/**
+
+        - id: xxux-service-home
+          uri: lb://xxux-service-home
+          predicates:
+            - Path=/*/home/**
+
+        - id: xxux-service-cart
+          uri: lb://xxux-service-cart
+          predicates:
+            - Path=/*/cart/**
+
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: localhost:8848

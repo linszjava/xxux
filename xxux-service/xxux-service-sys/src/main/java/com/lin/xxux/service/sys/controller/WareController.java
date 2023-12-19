@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/admin/sys/ware")
 @Api(tags = "Ware管理")
-@CrossOrigin
+//@CrossOrigin
 public class WareController {
 
     @Autowired
