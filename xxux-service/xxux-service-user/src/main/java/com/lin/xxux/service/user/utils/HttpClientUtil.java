@@ -185,7 +185,7 @@ public class HttpClientUtil {
                 res = client.execute(post);
             } else {
                 // 执行 Http 请求.
-                client = HttpClientUtils.client;
+                client = HttpClientUtil.client;
                 res = client.execute(post);
             }
             return IOUtils.toString(res.getEntity().getContent(), "UTF-8");
