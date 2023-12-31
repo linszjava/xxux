@@ -1,16 +1,20 @@
 package com.lin.xxux.service.user.utils;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.config.RequestConfig.Builder;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLContextBuilder;
 import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.entity.ContentType;
@@ -19,8 +23,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.ssl.SSLContextBuilder;
-
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
@@ -30,7 +32,11 @@ import java.net.SocketTimeoutException;
 import java.security.GeneralSecurityException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  * <p>TODO</p>
@@ -123,7 +129,7 @@ public class HttpClientUtil {
                 res = client.execute(post);
             } else {
                 // 执行 Http 请求.
-                client = HttpClientUtils.client;
+                client = HttpClientUtil.client;
                 res = client.execute(post);
             }
             result = IOUtils.toString(res.getEntity().getContent(), charset);
@@ -165,12 +171,12 @@ public class HttpClientUtil {
             }
 
             if (headers != null && !headers.isEmpty()) {
-                for (Entry<String, String> entry : headers.entrySet()) {
+                for (Map.Entry<String, String> entry : headers.entrySet()) {
                     post.addHeader(entry.getKey(), entry.getValue());
                 }
             }
             // 设置参数
-            Builder customReqConf = RequestConfig.custom();
+            RequestConfig.Builder customReqConf = RequestConfig.custom();
             if (connTimeout != null) {
                 customReqConf.setConnectTimeout(connTimeout);
             }
